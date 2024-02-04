@@ -1,10 +1,16 @@
 @font-face {
-    font-family: 'Ubuntu';
-    src: url(../../resources/fonts/Inter-VariableFont_slnt\,wght.ttf) format('truetype');
+    font-family: 'DM Sans';
+    src: url(../../resources/fonts/DMSans-VariableFont_opsz\,wght.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'DM Sans';
+  src: url(../../resources/fonts/DMSans-Italic-VariableFont_opsz\,wght.ttf) format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
 :root {
   --primary: #000000;
   --secondar: #777777;
@@ -15,91 +21,15 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
 }
 
 body {
-    background-color: var(--primary);
-    color: var(--tertiary);
+    min-height: 100vh;
+    color: #ffffff;
+
 }
 /* ******************************/
 /***********REUSABLE***********/
 /*******************************/
-
-a{
-  text-decoration: none;
-  color: var(--tertiary);
-}
-
-ul {
-  list-style: none;
-}
-
-.text-heading {
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 58px;
-  width: 385px
-}
-
-.text-paragraph {
-  line-height: 24px;
-  width: 385px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: left;
-
-}
-/*******************************/
-
-
-section{
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  max-height: 100%;
-}
-
-.space {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.waitlist {
-  border: 1.8px solid var(--tertiary);
-  padding: 10px;
-  border-radius: 25px;
-}
-
-.section-space {
-  position: absolute;
-  top: 42%;
-  left: 18%;
-}
-
-.mockuper1 {
-  position: absolute;
-  top: 25%;
-  left: 60%;
-  height: 270px;
-  transform: rotate(14deg);
-
-}
-.mockuper2 {
-  position: absolute;
-  top: 60%;
-  left: 65%;
-}
-
-.mockuper3{
-  position: absolute;
-  left: 47%;
-  top: 67%;
-  box-shadow: 0px 4px 4px 0px #00000040;
-  
-}
 
