@@ -135,7 +135,7 @@ body{
 .text-heading-1 {
 	font-size: 70px;
 	font-weight: 700;
-	font-family: var(--font-secondary);
+	font-family: var(--font-primary);
 	color: var(--color-heading);
 
 }
