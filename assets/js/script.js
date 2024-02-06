@@ -1,15 +1,19 @@
 // Add this to your existing script.js or in a separate script file
 
-$(document).ready(function() {
-    var navbar = $('.navbar');
-    var navbarBlur = $('.navbar-blur');
-  
-    $(window).scroll(function() {
-      if ($(window).scrollTop() > 50) {
-        navbar.addClass('navbar-scrolled');
-      } else {
-        navbar.removeClass('navbar-scrolled');
-      }
-    });
-  });
-  
+
+const navbars = document.querySelector('#navbar');
+// console.log(navbars)
+
+function scrolly () {
+  if (window.scrollY > 100 ) {
+    navbars.classList.add('navbar-blur');
+    console.log("done");
+  }
+
+  else {
+    navbars.classList.remove('navbar-blur');
+    // alert("done");
+  }
+}
+
+window.addEventListener('scroll', scrolly)
