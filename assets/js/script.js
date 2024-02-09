@@ -1,19 +1,9 @@
-// Add this to your existing script.js or in a separate script file
+window.onscroll = function() {scrollFunction()};
 
-
-const navbars = document.querySelector('#navbar');
-// console.log(navbars)
-
-function scrolly () {
-  if (window.scrollY > 100 ) {
-    navbars.classList.add('navbar-blur');
-    console.log("done");
-  }
-
-  else {
-    navbars.classList.remove('navbar-blur');
-    // alert("done");
+function scrollFunction() {
+  if (document.body.scrollTop > window.innerHeight || document.documentElement.scrollTop > window.innerHeight) {
+    document.getElementById("navbar").classList.add("blur");
+  } else {
+    document.getElementById("navbar").classList.remove("blur");
   }
 }
-
-window.addEventListener('scroll', scrolly)
