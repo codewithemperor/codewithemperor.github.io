@@ -6,14 +6,11 @@ body{
 	background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.881)), url(../img/passport.jpg);
 }
 
-section {
-	min-height: 100vh;
-	max-height: 100vh;
-	width: 100%;
-}
 
 .main-section{
 	position: relative;
+	min-height: 100vh;
+	width: 100%;
 }
 
 
@@ -92,18 +89,25 @@ section {
 /* Card Overlay */
 
 .card-overlay {
-	margin-top: -60px;
+	position: absolute;
+	/* display: block; */
+	padding: 40px;
+	top: 450px;
+	-o-transition: var(--transition);
+	-webkit-transition: var(--transition);
+	-moz-transition: var(--transition);
+	-ms-transition: var(--transition);
 	transition: var(--transition);
 }
 
 
 .card-overlay .card-body {
 	padding: 35px;
-	transition: var(--transition);
+	-o-transition: var(--transition);
 	-webkit-transition: var(--transition);
 	-moz-transition: var(--transition);
 	-ms-transition: var(--transition);
-	-o-transition: var(--transition);
+	transition: var(--transition);
 }
 
 .card-overlay .card-body:hover {
@@ -132,3 +136,10 @@ section {
 	font-family: var(--font-secondary);
 }
 
+.about-me {
+	background-color: #000000e1;
+	padding: 5rem; /* Add padding to .about-me for spacing */
+	padding-top: 250px;
+    /* position: relative; */
+    /* bottom: 0; Ensure it starts at the bottom of the parent container */
+}
