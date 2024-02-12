@@ -114,9 +114,11 @@ ul{
 /*********** COLOR START HERE ***********/
 .color-heading{
 	color: var(--color-heading) !important;
-
 }
 
+.bg-black-gradient {
+	background: linear-gradient(#000, #010013);
+}
 /*********** COLOR ENDS HERE ***********/
 
 
