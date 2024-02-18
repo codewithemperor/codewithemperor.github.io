@@ -1,4 +1,5 @@
 @import url(root.css);
+@import url(responsive.css);
 
 
 body{
@@ -26,21 +27,7 @@ body{
 	padding-top: 30px;
 }
 
-.navbar.blur {
-	position: fixed;
-	top: 0;
-	left: 0;
-	backdrop-filter: blur(10px);
-	margin-bottom: 10px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	border-bottom: 2px solid var(--background-color-2);
-}
 
-
-  
-  /* Add other styles for the main content, typer, etc. */
-  
 
 .nav-li a {
 	color: var(--color-lightn);
@@ -60,8 +47,28 @@ body{
 	width: 100%;
 	margin-top: 3px;
 	padding: 1px;
-	border-bottom: 1px solid var(--color-primary);
+	/* border-bottom: 1px solid var(--color-primary); */
 }
+
+.navbar.blur {
+	position: fixed;
+	top: 0;
+	left: 0;
+	backdrop-filter: blur(10px);
+	margin-bottom: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid var(--background-color-2);
+}
+
+.navbar.blur .nav-li a {
+	color: var(--color-primary);
+}
+
+
+  
+  /* Add other styles for the main content, typer, etc. */
+  
 
 .hire-btn {
 	border-radius: 6px;
@@ -155,5 +162,75 @@ body{
 .title .link:hover {
 	background-color: var(--color-primary);
 	color: var(--color-lightn);
+	border-radius: 30px/40px;
+	-webkit-border-radius: 30px/40px;
+	-moz-border-radius: 30px/40px;
+	-ms-border-radius: 30px/40px;
+	-o-border-radius: 30px/40px;
 }
 
+/* scroll animation */
+
+.mv-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.mv-feature {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.mv-feature .icon {
+	width: 22px;
+	height: 22px;
+	background-color: var(--color-primary);
+	margin: 0 auto;
+	line-height: 24px;
+	text-align: center;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	-ms-border-radius: 100%;
+	-o-border-radius: 100%;
+	margin-right: 10px;
+}
+
+
+.mv-feature .icon i {
+	font-size: 14px;
+    color: #fff;
+}
+
+.mv-feature .text {
+    color: var(--color-heading);
+}
+
+
+.scroll-animation {
+    display: flex;
+    width: -webkit-calc((420px * 16) + (30px * 16));
+    width: -moz-calc((420px * 16) + (30px * 16));
+    width: calc((420px * 16) + (30px * 16));
+    position: relative;
+}
+
+.scroll-animation.scroll-right-left {
+    -webkit-animation: scroll 30s linear infinite;
+    -moz-animation: scroll 30s linear infinite;
+    animation: scroll 30s linear infinite;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+/* About me */
+.about-me {
+	background-color: var(--color-lightn);
+}

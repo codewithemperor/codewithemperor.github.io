@@ -134,3 +134,52 @@ ul{
 
 /*********** TEXT ENDS HERE ***********/
 
+
+/*********** ANIMATION ***********/
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(calc(-250px * 7));
+        -moz-transform: translateX(calc(-250px * 7));
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+@-webkit-keyframes scrollLeft {
+    0% {
+        -webkit-transform: translateX(calc(-250px * 7));
+        transform: translateX(calc(-250px * 7));
+    }
+    to {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes scrollLeft {
+    0% {
+        -moz-transform: translateX(calc(-250px * 7));
+        transform: translateX(calc(-250px * 7));
+    }
+    to {
+        -moz-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes scrollLeft {
+    0% {
+        -webkit-transform: translateX(calc(-250px * 7));
+        -moz-transform: translateX(calc(-250px * 7));
+        transform: translateX(calc(-250px * 7));
+    }
+    to {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
