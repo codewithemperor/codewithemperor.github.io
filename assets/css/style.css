@@ -89,15 +89,11 @@ body{
 /* Card Overlay */
 
 .card-overlay {
-	position: absolute;
+	/* position: absolute; */
 	/* display: block; */
-	padding: 40px;
-	top: 400px;
-	-o-transition: var(--transition);
-	-webkit-transition: var(--transition);
-	-moz-transition: var(--transition);
-	-ms-transition: var(--transition);
-	transition: var(--transition);
+	/* padding: 40px; */
+	/* top: 400px; */
+	margin-top: -250px;
 }
 
 
