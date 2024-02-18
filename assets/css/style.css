@@ -3,7 +3,7 @@
 
 body{
 	font-family: var(--font-primary);
-	background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.881)), url(../img/passport.jpg);
+	background: linear-gradient(rgba(0, 0, 0, 0.779), rgba(0, 0, 0, 0.69)), url(../img/passport.jpg);
 }
 
 
@@ -93,12 +93,13 @@ body{
 	/* display: block; */
 	/* padding: 40px; */
 	/* top: 400px; */
-	margin-top: -250px;
+	margin-top: -220px;
+	margin-bottom: 30px;
 }
 
 
-.card-overlay .card-body {
-	padding: 35px;
+.card-overlay .card {
+	padding: 30px;
 	-o-transition: var(--transition);
 	-webkit-transition: var(--transition);
 	-moz-transition: var(--transition);
@@ -106,9 +107,14 @@ body{
 	transition: var(--transition);
 }
 
-.card-overlay .card-body:hover {
-	padding: 10px 35px 25px 35px;
-	height: 100%;
+.card-overlay .card:hover {
+	border: 2px solid var(--color-primary);
+	z-index: 2;
+	transform: scale(1.15);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-ms-transform: scale(1.15);
+	-o-transform: scale(1.15);
 }
 
 .icon { 
@@ -132,10 +138,22 @@ body{
 	font-family: var(--font-secondary);
 }
 
-.about-me {
-	background-color: #000000e1;
-	padding: 5rem; /* Add padding to .about-me for spacing */
-	padding-top: 250px;
-    /* position: relative; */
-    /* bottom: 0; Ensure it starts at the bottom of the parent container */
+.title .link {
+	color: var(--color-primary);
+	font-size: var(--font-size-b3);
+	margin-top: 15px;
+	font-family: var(--font-secondary);
+	border: 2px solid var(--color-primary);
+	padding: 10px 15px;
+	transition: var(--transition);
+	-webkit-transition: var(--transition);
+	-moz-transition: var(--transition);
+	-ms-transition: var(--transition);
+	-o-transition: var(--transition);
 }
+
+.title .link:hover {
+	background-color: var(--color-primary);
+	color: var(--color-lightn);
+}
+
