@@ -9,10 +9,9 @@ body{
 }
 
 
+
 .main-section{
-	position: relative;
-	min-height: 100vh;
-	width: 100%;
+	position: relative;	
 }
 
 
@@ -97,10 +96,7 @@ body{
 /* Card Overlay */
 
 .card-overlay {
-	/* position: absolute; */
-	/* display: block; */
-	/* padding: 40px; */
-	/* top: 400px; */
+	align-items: center;
 	margin-top: -220px;
 	margin-bottom: 30px;
 }
@@ -227,27 +223,11 @@ body{
 	-webkit-animation: scroll1 20s linear infinite;
 }
   
-  @keyframes scroll1 {
-	0% {
-		transform: translateX(0)	;
-		-webkit-transform: translateX(0)	;
-		-moz-transform: translateX(0)	;
-		-ms-transform: translateX(0)	;
-		-o-transform: translateX(0)	;
-}
-	to {
-		transform: translateX(-1000px)	;
-		-webkit-transform: translateX(-1000px)	;
-		-moz-transform: translateX(-1000px)	;
-		-ms-transform: translateX(-1000px)	;
-		-o-transform: translateX(-1000px)	;
-}
-  }
- 
-  
-
-
-/* About me */
+ /* About me */
 .about-me {
 	background-color: #1e201f;
+}
+
+.about-me i {
+	color: var(--color-primary);
 }
