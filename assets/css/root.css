@@ -162,7 +162,10 @@ ul{
 
 /*********** TEXT ENDS HERE ***********/
 
-
+.img-cover {
+	height: inherit;
+	object-fit: cover;
+}
 
 /*********** ANIMATION ***********/
 @keyframes scroll1 {
