@@ -177,7 +177,7 @@ body{
     padding: 0;
     margin: 0;
     display: flex;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 .mv-feature {
@@ -213,19 +213,36 @@ body{
     color: var(--color-heading);
 	white-space: nowrap;
     width: 100%;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 
 .scrolling-container {
-	/* width: 100%; */
-	/* overflow: hidden; */
+	width: 100%;
+	overflow: hidden;
   }
   
   .scrolling-content {
-	/* white-space: nowrap; */
-	animation: scroll 30s linear infinite;
-  }
+	white-space: nowrap;
+	animation: scroll1 20s linear infinite;
+	-webkit-animation: scroll1 20s linear infinite;
+}
   
+  @keyframes scroll1 {
+	0% {
+		transform: translateX(0)	;
+		-webkit-transform: translateX(0)	;
+		-moz-transform: translateX(0)	;
+		-ms-transform: translateX(0)	;
+		-o-transform: translateX(0)	;
+}
+	to {
+		transform: translateX(-1000px)	;
+		-webkit-transform: translateX(-1000px)	;
+		-moz-transform: translateX(-1000px)	;
+		-ms-transform: translateX(-1000px)	;
+		-o-transform: translateX(-1000px)	;
+}
+  }
  
   
 
