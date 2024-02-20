@@ -158,6 +158,13 @@ ul{
 .text-paragraph {
 	font-family: var(--font-secondary);
 	color: var(--color-light);
+	font-weight: var(--p-regular);
+}
+
+.text-paragraph-primary {
+	font-family: var(--font-secondary);
+	color: var(--color-primary);
+	font-weight: var(--p-semi-bold);
 }
 
 /*********** TEXT ENDS HERE ***********/
