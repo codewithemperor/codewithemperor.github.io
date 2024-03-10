@@ -89,10 +89,6 @@
     box-sizing: border-box;
 }
 
-section {
-	min-height: 100vh;
-	width: 100%;
-}
 
 
 
@@ -141,7 +137,7 @@ ul{
 }
 
 .text-heading-2 {
-	font-size: var(--h4);
+	font-size: 1.8rem;
 	font-weight: var(--s-bold);
 	font-family: var(--font-primary);
 	color: var(--color-lighter);
@@ -150,7 +146,7 @@ ul{
 .text-heading-3 {
 	font-family: var(--font-secondary);
 	color: var(--color-lightest);
-	font-size: 22px;
+	font-size: 1.2rem;
 	font-weight: var(--p-semi-bold);
 
 }

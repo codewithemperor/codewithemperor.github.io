@@ -1,5 +1,5 @@
 @import url(root.css);
-@import url(responsive.css);
+
 
 
 body{
@@ -10,11 +10,9 @@ body{
 }
 
 
-
-.main-section{
-	position: relative;	
+#main-section {
+	position: relative;
 }
-
 
 
 /* Navbar Styles */
@@ -83,15 +81,29 @@ body{
     font-weight: 500;
 	padding: 18px 40px;
 	color: var(--color-primary); 
-}
-
-.hire-btn:hover {
-	transform: translateY(-5px);
-	opacity: 1 !important;
-    background: var(--gradient-red-hover);
 	color: var(--color-border) !important;
 }
 
+.hire-btn:hover {
+	opacity: 1 !important;
+	border: 2px solid var(--color-primary);
+	transform: scale(1.1);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-ms-transform: scale(1.15);
+	-o-transform: scale(1.15);
+}
+
+.type {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -30%);
+	-webkit-transform: translate(-50%, -30%);
+	-moz-transform: translate(-50%, -30%);
+	-ms-transform: translate(-50%, -30%);
+	-o-transform: translate(-50%, -30%);
+}
 
 
 /* Card Overlay */
@@ -104,7 +116,7 @@ body{
 
 
 .card-overlay .card {
-	padding: 30px;
+	padding: 1rem;
 	-o-transition: var(--transition);
 	-webkit-transition: var(--transition);
 	-moz-transition: var(--transition);
@@ -115,11 +127,11 @@ body{
 .card-overlay .card:hover {
 	border: 2px solid var(--color-primary);
 	z-index: 2;
-	transform: scale(1.15);
-	-webkit-transform: scale(1.15);
-	-moz-transform: scale(1.15);
-	-ms-transform: scale(1.15);
-	-o-transform: scale(1.15);
+	transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	-o-transform: scale(1.05);
 }
 
 .icon { 
