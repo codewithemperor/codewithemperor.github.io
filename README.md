@@ -1,10 +1,14 @@
-<h1 align="center" id="title">FASHION E-COMMERCE</h1>
+<h1 align="center" id="title">MY-PERSONAL-PORTFOLIO</h1>
 
-<p align="center"><img src="https://socialify.git.ci/codewithemperor/helen-classic-ecommerce/image?font=Bitter&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Formal%20Invitation&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
+<p align="center"><img src="https://socialify.git.ci/codewithemperor/codewithemperor.github.io/image?language=1&amp;name=1&amp;owner=1&amp;pattern=Formal%20Invitation&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
+
+<h2>🚀 Demo</h2>
+
+[codewithemperor.github.io](codewithemperor.github.io)
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://github.com/codewithemperor/helen-classic-ecommerce/blob/main/Screenshot_15-3-2024_132927_.jpeg" alt="project-screenshot" width="1190" height="3380/">
+<img src="https://github.com/codewithemperor/codewithemperor.github.io/blob/main/Screenshot_16-3-2024_1833_127.0.0.1.jpeg" alt="project-screenshot" width="1190" height="3380/">
 
   
   
@@ -12,8 +16,7 @@
 
 Here're some of the project's best features:
 
-*   Add to Cart
-*   Payment Gateway
+*   Direct to Email after submitting the Contact Us form
 
   
   
@@ -25,3 +28,7 @@ Technologies used in the project:
 *   PHP
 *   Jquery
 *   Javascript
+*   Wow
+*   Animate.css
+*   font-awesome
+*   typed
