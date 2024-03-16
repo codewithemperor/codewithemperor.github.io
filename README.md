@@ -8,7 +8,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://github.com/codewithemperor/codewithemperor.github.io/blob/main/Screenshot_16-3-2024_1833_127.0.0.1.jpeg" alt="project-screenshot" width="1190" height="3380/">
+<img src="https://github.com/codewithemperor/codewithemperor.github.io/blob/main/Screenshot_16-3-2024_1833_127.0.0.1.jpeg" alt="project-screenshot" width="1190" height="auto/">
 
   
   
