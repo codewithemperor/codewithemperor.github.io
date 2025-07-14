@@ -4,8 +4,8 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import {JOURNEY_STEPS, PASSIONS} from '../../utils/data'
 import { containerVariants, itemVariants, stepVariants, timelineVariants } from "../../utils/helper";
+import images from "../../utils/images";
 
-const E_SIGNATURE = '../../src/assets/e-signature.svg'
 
 const AboutSection = () => {
     const { isDarkMode } = useTheme()
@@ -80,7 +80,7 @@ const AboutSection = () => {
                             
                             {/* DigitalSignature */}
                             <div className="flex justify-center">
-                                <img src={E_SIGNATURE} alt="Yusuf" className="w-38" />
+                                <img src={images.e_signature} alt="Yusuf" className="w-38" />
                             </div>
                             {/* <div className="text-lg font-medium text-blue-500 mt-2">Sulaimon Yusuf A.</div> */}
                         </motion.div>

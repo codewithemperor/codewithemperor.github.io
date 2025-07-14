@@ -1,3 +1,5 @@
+import profile_img from '../src/assets/yusuf.jpg'
+import e_signature from '../src/assets/e-signature.svg'
 import kero_app from '../src/assets/project/kero-app.jpg'
 import kero_app2 from '../src/assets/project/kero-app2.jpg'
 import kero_web from '../src/assets/project/kero-web.jpg'
@@ -11,6 +13,8 @@ import payyourdues from '../src/assets/project/payyourdues.jpg'
 import mmcharity from '../src/assets/project/mmcharity.jpg'
 
 export default {
+    profile_img,
+    e_signature,
     kero_app,
     kero_app2,
     kero_web,

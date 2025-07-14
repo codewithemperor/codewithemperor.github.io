@@ -6,8 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";
 import { containerVariants, itemVariants, textVariants, imageVariants } from "../../utils/helper";
 import { SOCIAL_LINKS } from "../../utils/data";
-
-const PROFILE_IMG = '../../src/assets/yusuf.jpg'
+import images from '../../utils/images';
 
 export const Herosection = () => {
     const { isDarkMode } = useTheme();
@@ -62,7 +61,7 @@ export const Herosection = () => {
                             <motion.div variants={imageVariants} className="mb-8">
                                 <div className="w-48 h-48 mx-auto relative">
                                     <motion.div whileHover={{ scale: 1.05 }} className={`w-full h-48 rounded-2xl overflow-hidden border-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-300"} shadow-2xl`}>
-                                        <img src={PROFILE_IMG} alt="profile" className="w-full h-full object-cover" />
+                                        <img src={images.profile_img} alt="profile" className="w-full h-full object-cover" />
                                     </motion.div>
                                     {/* Decorative ring */}
                                     <motion.div
@@ -237,7 +236,7 @@ export const Herosection = () => {
                                 </motion.div>
 
                                 <motion.div whileHover={{ scale: 1.05 }} className={`w-80 h-96 rounded-3xl overflow-hidden border-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-300"} shadow-2xl`}>
-                                    <img src={PROFILE_IMG} alt="profile" className="w-full h-full object-cover" />
+                                    <img src={images.profile_img} alt="profile" className="w-full h-full object-cover" />
                                 </motion.div>
 
                                 {/* Decorative elements */}
