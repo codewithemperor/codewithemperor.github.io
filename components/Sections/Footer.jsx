@@ -5,6 +5,7 @@ import { Mail, Heart, ArrowUp, Code2 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi"; 
 import { containerVariants, itemVariants } from "../../utils/helper";
+import { SOCIAL_LINKS } from "../../utils/data";
 
 const Footer = () => {
     const { isDarkMode } = useTheme()
@@ -13,13 +14,6 @@ const Footer = () => {
 
     const { scrollYProgress } = useScroll();
     const scrollY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
-    const socialLinks = [
-        { icon: FiGithub, url: "", name: "GitHub", color: 'hover:text-gray-400' },
-        { icon: FiLinkedin, url: "", name: "LinkedIn", color: 'hover:text-blue-400' },
-        { icon: FiTwitter, url: "", name: "Twitter", color: 'hover:text-sky-400' },  
-        { icon: Mail, url: "mailto:", name: "Email", color: 'hover:text-green-400' },
-    ]
 
     const scrollToTop = () => {
         window.scrollTo({top: 0, behavior: 'smooth'});
@@ -44,7 +38,7 @@ const Footer = () => {
     );
 
     return (
-        <footer ref={footerRef}  className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} relative overflow-hidden`} >
+        <footer ref={footerRef} className={`${isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"} relative overflow-hidden`} >
             {/* Animated Wave/Gradient Line */}
             <AnimatedGradientLine />
 
@@ -75,13 +69,13 @@ const Footer = () => {
 
                         {/* Social Links */}
                         <motion.div variants={itemVariants} className="flex justify-center space-x-6">
-                            {socialLinks.map((social, index) => (
+                            {SOCIAL_LINKS.map((social, index) => (
                                 <motion.a 
                                     key={index} 
                                     href={social.url} 
                                     target="_blank" 
                                     rel="noopener noreferrer" 
-                                    className={`p-3 rounded-full transition-all duration-300 ${isDarkMode ? "bg-gray-800/50 hover:bg-gray-700/50" : "bg-gray-100/50 hover:bg-gray-200"} ${social.color} backdrop-blur-sm`}
+                                    className={`p-3 rounded-full transition-all duration-300 ${social.color} ${social.bgColor} backdrop-blur-sm`}
                                     whileHover={{ scale: 1.1, y: 2, rotate: [0, -5, 5, 0] }}
                                     whileTap={{ scale: 0.95 }}
                                     initial={{ opacity: 0, y: 20 }}

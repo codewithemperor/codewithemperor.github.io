@@ -1,8 +1,13 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import {motion, useScroll, useTransform, color} from 'framer-motion';
 import { Mail, ArrowDown } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
+
 import { useTheme } from "../../context/ThemeContext";
 import { containerVariants, itemVariants, textVariants, imageVariants } from "../../utils/helper";
+import { SOCIAL_LINKS } from "../../utils/data";
+
+const PROFILE_IMG = '../../src/assets/yusuf.png'
 
 export const Herosection = () => {
     const { isDarkMode } = useTheme();
@@ -55,9 +60,9 @@ export const Herosection = () => {
                         <motion.div initial="hidden" animate="visible" variants={containerVariants} className="text-center">
                             {/* Profile Image - Mobile */}
                             <motion.div variants={imageVariants} className="mb-8">
-                                <div className="w-32 h-32 mx-auto relative">
-                                    <motion.div whileHover={{ scale: 1.05 }} className={`w-full h-32 rounded-2xl overflow-hidden border-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-300"} shadow-2xl`}>
-                                        <img src="" alt="profile" className="w-full h-full object-cover" />
+                                <div className="w-48 h-48 mx-auto relative">
+                                    <motion.div whileHover={{ scale: 1.05 }} className={`w-full h-48 rounded-2xl overflow-hidden border-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-300"} shadow-2xl`}>
+                                        <img src={PROFILE_IMG} alt="profile" className="w-full h-full object-cover" />
                                     </motion.div>
                                     {/* Decorative ring */}
                                     <motion.div
@@ -77,15 +82,15 @@ export const Herosection = () => {
                                 Full Stack Developer
                             </motion.div>
 
-                            <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl font-light mb-6 leading-tight">
-                                <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>Building digital</span>
-                                <span className="text-blue-500 font-medium ml-2">experiences</span>
-                                <br />
-                                <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>that matter</span>
+                            <motion.h1 variants={itemVariants} className="text-5xl xl:text-7xl font-light mb-8 leading-tight">
+                              <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>Designing clean</span>
+                              <span className="text-blue-500 font-medium ml-2">interfaces</span>
+                              <br />
+                              <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>that perform</span>
                             </motion.h1>
 
-                            <motion.p variants={itemVariants} className={`test-base md:text-lg ${isDarkMode ? "text-gray-400" : "text-gray-600"} mb-8 max-w-xl mx-auto font-light leading-relaxed`}>
-                                I craft beautiful, functional web applications with modern technologies and thoughtful user experiences.
+                            <motion.p variants={itemVariants} className={`text-base md:text-lg ${isDarkMode ? "text-gray-400" : "text-gray-600"} mb-8 max-w-xl mx-auto font-light leading-relaxed`}>
+                              I build responsive mobile and web apps that blend seamless performance with intuitive design and usability.
                             </motion.p>
 
                             {/* CTA Buttons - Mobile */}
@@ -112,11 +117,7 @@ export const Herosection = () => {
 
                             {/* Social Links - Mobile */}
                             <motion.div variants={itemVariants} className="flex justify-center space-x-6  mb-8">
-                                {[
-                                    { icon: FiGithub, href: "#" },
-                                    { icon: FiLinkedin, href: "#" },
-                                    { icon: Mail, href: "#" },
-                                ].map((social, index) => (
+                                {SOCIAL_LINKS.map((social, index) => (
                                     <motion.a
                                         key={index}
                                         href={social.href}
@@ -129,14 +130,24 @@ export const Herosection = () => {
                             </motion.div>
 
                             {/* Tech Stack - Mobile */}
-                            <motion.div variants={itemVariants} className="flex justify-center items-center space-x-6 text-xs uppercase tracking-widest flex-wrap">
-                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>React</span>
+                            <motion.div variants={itemVariants} className="flex justify-center items-center space-y-2 space-x-4 text-xs uppercase tracking-widest flex-wrap">
+                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>React.js</span>
                                 <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
 
-                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>Node.js</span>
+                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>React Native</span>
                                 <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
 
-                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>Typescript</span>
+                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>Expo</span>
+                                <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
+
+
+                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>JS/Typescript</span>
+                                <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
+
+                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>TailWind</span>
+                                <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
+
+                                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>MERN STACK</span>
                                 <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
                             </motion.div>
                         </motion.div>
@@ -151,14 +162,14 @@ export const Herosection = () => {
                             </motion.div>
 
                             <motion.h1 variants={itemVariants} className="text-5xl xl:text-7xl font-light mb-8 leading-tight">
-                                <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>Building digital</span>
-                                <span className="text-blue-500 font-medium ml-2">experiences</span>
-                                <br />
-                                <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>that matter</span>
+                              <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>Designing clean</span>
+                              <span className="text-blue-500 font-medium ml-2">interfaces</span>
+                              <br />
+                              <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>that perform</span>
                             </motion.h1>
 
-                            <motion.p variants={itemVariants} className={`test-base md:text-lg ${isDarkMode ? "text-gray-400" : "text-gray-600"} mb-8 max-w-xl mx-auto font-light leading-relaxed`}>
-                                I craft beautiful, functional web applications with modern technologies and thoughtful user experiences.
+                            <motion.p variants={itemVariants} className={`text-base md:text-lg ${isDarkMode ? "text-gray-400" : "text-gray-600"} mb-8 max-w-xl mx-auto font-light leading-relaxed`}>
+                              I build responsive mobile and web apps that blend seamless performance with intuitive design and usability.
                             </motion.p>
 
                             {/* CTA Buttons - Mobile */}
@@ -185,16 +196,14 @@ export const Herosection = () => {
 
                             {/* Social Links - Mobile */}
                             <motion.div variants={itemVariants} className="flex space-x-6  mb-12">
-                                {[
-                                    { icon: FiGithub, href: "#" },
-                                    { icon: FiLinkedin, href: "#" },
-                                    { icon: Mail, href: "#" },
-                                ].map((social, index) => (
+                                {SOCIAL_LINKS.map((social, index) => (
                                     <motion.a
                                         key={index}
-                                        href={social.href}
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        href={social.url}
                                         whileHover={{ y: -3, scale: 1.1 }}
-                                        className={`p-3 rounded-full transition-colors ${isDarkMode ? "text-gray-400 hover:text-white hover:bg-gray-800" : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"}`}
+                                        className={`p-3 rounded-full transition-colors ${isDarkMode ? "text-gray-400 hover:text-white hover:bg-gray-800" : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"} ${social.color} ${social.bgColor}`}
                                     >
                                         <social.icon size={20} />
                                     </motion.a>
@@ -206,19 +215,29 @@ export const Herosection = () => {
                         <motion.div initial="hidden" animate="visible" variants={imageVariants} className="flex justify-center lg:justify-end">
                             <div className="relative">
                                 {/* Tech Stack - Mobile */}
-                                <motion.div variants={itemVariants} className="flex items-center space-x-6 text-xs uppercase tracking-widest absolute -top-16 -left-28 ">
-                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>React</span>
+                                <motion.div variants={itemVariants} className="flex flex-wrap justify-end items-center space-x-6 text-xs uppercase tracking-widest absolute -top-16 -left-28 ">
+                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>React.js</span>
                                     <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
 
-                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>Node.js</span>
+                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>React Native</span>
                                     <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
 
-                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>Typescript</span>
+                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>Expo</span>
+                                    <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
+
+
+                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>JS/Typescript</span>
+                                    <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
+
+                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>TailWind</span>
+                                    <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
+
+                                    <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>MERN STACK</span>
                                     <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>*</span>
                                 </motion.div>
 
                                 <motion.div whileHover={{ scale: 1.05 }} className={`w-80 h-96 rounded-3xl overflow-hidden border-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-300"} shadow-2xl`}>
-                                    <img src="" alt="profile" className="w-full h-full object-cover" />
+                                    <img src={PROFILE_IMG} alt="profile" className="w-full h-full object-cover" />
                                 </motion.div>
 
                                 {/* Decorative elements */}

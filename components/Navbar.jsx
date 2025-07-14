@@ -31,7 +31,7 @@ export const Navbar = () => {
                 className="flex items-center space-x-2"
             >
                 <Code2 size={24} className="text-blue-500" />{" "}
-                <span className="text-lg ml-1">TIme to Program</span>
+                <span className={`text-lg ml-1 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>Code with Emperor</span>
             </motion.div>
 
             {/* Desktop Navigation */}

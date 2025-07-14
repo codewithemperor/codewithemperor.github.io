@@ -13,6 +13,7 @@ const ContactSection = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        phone: "",
         message: ""
     });
     const [showSuccess, setShowSuccess] = useState(false);
@@ -39,18 +40,35 @@ const ContactSection = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        // Send form data to Formspree
+        const response = await fetch("https://formspree.io/f/mzzvpywb", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                message: formData.message,
+            }),
+        });
 
-        setIsSubmitting(false);
-        setShowSuccess(true);
-        setFormData({ name: "", email: "", message: "" });
+        if (response.ok) {
+            setIsSubmitting(false);
+            setShowSuccess(true);
+            setFormData({ name: "", email: "", message: "" });
 
-        setTimeout(() => {() => setShowSuccess(false)}, 3000);
+            setTimeout(() => setShowSuccess(false), 3000);
+        } else {
+            setIsSubmitting(false);
+            alert("Failed to send message. Please try again.");
+        }
     };
 
 
   return (
-    <section ref={sectionRef} id="contact" className={`py-24 px-6 ${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} relative overflow-hidden`} >
+    <section ref={sectionRef} id="contact" className={`py-24 px-6 ${isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"} relative overflow-hidden`} >
         {/* Background Elements */}
         <motion.div style={{y}} className="absolute inset-0 overflow-hidden">
             <div className={`absolute top-20 right-1/4 w-72 h-72 rounded-full blur-3xl opacity-5 ${isDarkMode ? "bg-blue-500" : "bg-blue-400"}`} />
@@ -77,17 +95,25 @@ const ContactSection = () => {
 
             <div className="grid lg:grid-cols-2 gap-16 items-start">
                 {/* Contact Form */}
-                <motion.div initial='hidden' animate={isInView ? 'visible' : 'hidden'} variants={containerVariants} className="">
+                <motion.div initial='hidden' animate={isInView ? 'visible' : 'hidden'} variants={containerVariants} className="space-y-6">
                     <motion.div variants={itemVariants} className={`p-8 rounded-2xl border ${isDarkMode ? "bg-gray-800/50 border-gray-700 backdrop-blur-sm" : "bg-gray-50/80 border-gray-200 backdrop-blur-sm"}`}>
                         <h3 className="text-2xl font-medium mb-8">Send me a message</h3>
 
-                        <div className="space-y-6">
+                        <form method="POST" action="https://formspree.io/f/mzzvpywb" className="space-y-6">
+                            <TextInput 
+                                isDarkMode={isDarkMode}
+                                value={formData.name}
+                                handleInputChange={(value) => handleInputChange("name", value)}
+                                label="Your Name"
+                            />
+
                             <div className="grid md:grid-cols-2 gap-6">
+
                                 <TextInput 
                                     isDarkMode={isDarkMode}
-                                    value={formData.name}
-                                    handleInputChange={(value) => handleInputChange("name", value)}
-                                    label="Your Name"
+                                    value={formData.phone}
+                                    handleInputChange={(value) => handleInputChange("phone", value)}
+                                    label="Phone Number"
                                 />
 
                                 <TextInput 
@@ -126,8 +152,22 @@ const ContactSection = () => {
                                     </>
                                 )}
                             </motion.button>
-                        </div>
+                        </form>
+
                         
+                        
+                    </motion.div>
+
+                     {/* Availabilit Status */}
+                    <motion.div variants={itemVariants} className={`p-6 rounded-2xl border ${isDarkMode ? "bg-green-500/10 border-green-500/20" : "bg-green-50 border-green-200"}`}>
+                        <div className="flex items-center space-x-3 mb-2">
+                            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse " />
+                            <span className="font-medium text-green-500 ">Available for Work</span>
+                        </div>
+
+                        <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                            I'm currently available for freelance projects and collaborations. Feel free to reach out!
+                        </p>
                     </motion.div>
 
 
@@ -173,17 +213,7 @@ const ContactSection = () => {
                         </div>
                     </motion.div>
 
-                    {/* Availabilit Status */}
-                    <motion.div variants={itemVariants} className={`p-6 rounded-2xl border ${isDarkMode ? "bg-green-500/10 border-green-500/20" : "bg-green-50 border-green-200"}`}>
-                        <div className="flex items-center space-x-3 mb-2">
-                            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse " />
-                            <span className="font-medium text-green-500 ">Available for Work</span>
-                        </div>
-
-                        <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
-                            I'm currently available for freelance projects and collaborations. Feel free to reach out!
-                        </p>
-                    </motion.div>
+                   
                 </motion.div>
 
             </div>
@@ -195,13 +225,16 @@ const ContactSection = () => {
                     <p className={` ${isDarkMode ? "text-gray-400" : "text-gray-600"} mb-6`}>
                         Sometimes a conversation is worth a thousand messages. Feel free to reach out to discuss your ideas, projects, or just to say hello!
                     </p>
-                    <motion.button 
+                    <motion.a 
+                        href="https://calendly.com/codewithemperor/schedule-a-call"
+                         target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{y: -2, scale: 1.02}}
                         whileTap={{scale: 0.98}}
                         className={`px-6 py-3 rounded-full border font-medium transition-all duration-300  ${isDarkMode ? "border-gray-600 hover:border-blue-500 hover:text-blue-400" : "hover:border-blue-500 border-gray-300 hover:text-blue-600"}`}
                     >
                         Schedule a Call
-                    </motion.button>
+                    </motion.a>
                 </motion.div>
             </motion.div>
         </div>

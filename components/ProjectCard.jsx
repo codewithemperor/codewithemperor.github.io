@@ -26,7 +26,7 @@ const ProjectCard = ({project, index, isDarkMode}) => {
                 {/* Featured Badge */}
                 {project.featured && (
                     <div className="absolute top-4 left-4">
-                        <span className="bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-medium">Featured</span>
+                        <span className="bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-medium">{project.featured}</span>
                     </div>
                 )}
 
@@ -39,15 +39,22 @@ const ProjectCard = ({project, index, isDarkMode}) => {
 
                 {/* Hover Overlay withh CTA Buttons */}
                  <motion.div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center space-x-4" initial={{opacity: 0}} whileHover={{ opacity: 1 }} transition={{duration: 0.3}}>
-                    <motion.a href={project.liveUrl} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 flex rounded-full items-center space-x-2 text-sm font-medium transition-colors" initial={{y:20, opacity: 0.5}} whileHover={{y: 0, opacity: 1, scale: 1.05}} transition={{duration: 0.3, delay: 0.1}}>
-                        <ExternalLink size={16} />
-                        <span>Live Demo</span>
+                 
+                    <motion.a href={project.link.url} target="_blank" rel="noopener noreferrer"  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 flex rounded-full items-center space-x-2 text-sm font-medium transition-colors" initial={{y:20, opacity: 0.5}} whileHover={{y: 16, opacity: 1, scale: 1.05}} transition={{duration: 0.3, delay: 0.1}}>
+                        {project.link?.icon 
+                            ? <project.link.icon size={16} />
+                            : <ExternalLink size={16} />
+                        }
+                        <span>{project.link?.title || 'Live URL'}</span>
                     </motion.a>
 
-                    <motion.a href={project.githubUrl} className={`border-2 border-white text-white hover:bg-white hover:text-gray-900 px-4 py-2 rounded-full flex items-center space-x-2 font-medium transition-all`} initial={{y:20, opacity: 0.5}} whileHover={{y: 0, opacity: 1, scale: 1.05}} transition={{duration: 0.3, delay: 0.1}}>
-                        <FiGithub size={16} />
-                        <span>Github</span>
-                    </motion.a>
+                    { project.link2 && (
+                        <motion.a href={project.link2.url} target="_blank" rel="noopener noreferrer"  className={`border-2 border-white text-white hover:bg-white hover:text-gray-900 px-4 py-2 rounded-full flex items-center space-x-2 text-sm font-medium transition-all`} initial={{y:20, opacity: 0.5}} whileHover={{y: 16, opacity: 1, scale: 1.05}} transition={{duration: 0.3, delay: 0.1}}>
+                            <project.link2.icon size={16} />
+                            <span>{project.link2.title}</span>
+                        </motion.a>
+                    )}
+
                 </motion.div>
             </div>
 

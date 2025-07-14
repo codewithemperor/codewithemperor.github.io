@@ -5,6 +5,8 @@ import { useTheme } from "../../context/ThemeContext";
 import {JOURNEY_STEPS, PASSIONS} from '../../utils/data'
 import { containerVariants, itemVariants, stepVariants, timelineVariants } from "../../utils/helper";
 
+const E_SIGNATURE = '../../src/assets/e-signature.svg'
+
 const AboutSection = () => {
     const { isDarkMode } = useTheme()
     const sectionRef = useRef(null);
@@ -20,7 +22,7 @@ const AboutSection = () => {
     const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
     return (
-        <section ref={sectionRef} id="about" className={`py-24 px-6 ${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} relative overflow-hidden`} >
+        <section ref={sectionRef} id="about" className={`py-24 px-6 ${isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"} relative overflow-hidden`} >
             {/* Background Elements */}
             <motion.div style={{y}} className="absolute inset-0 overflow-hidden">
                 <div className={`absolute top-40 right-1/3 w-80 h-80 rounded-full blur-3xl opacity-5 ${isDarkMode ? "bg-blue-500" : "bg-blue-400"}`} />
@@ -78,9 +80,9 @@ const AboutSection = () => {
                             
                             {/* DigitalSignature */}
                             <div className="flex justify-center">
-                                <img src="" alt="Yusuf" className="w-28" />
+                                <img src={E_SIGNATURE} alt="Yusuf" className="w-38" />
                             </div>
-                            <div className="text-lg font-medium text-blue-500 mt-2">Sulaimon Yusuf A.</div>
+                            {/* <div className="text-lg font-medium text-blue-500 mt-2">Sulaimon Yusuf A.</div> */}
                         </motion.div>
 
 
@@ -119,7 +121,7 @@ const AboutSection = () => {
                 <motion.div initial='hidden' animate={isInView ? 'visible' : 'hidden'} variants={containerVariants} className="mt-20 text-center">
                     <motion.div variants={itemVariants} className="flex flex-col items-center space-y-6">
                         <p className={`text-lg ${isDarkMode? 'text-gray-400' : 'text-gray-600'}`}>Ready to bring your ideas to life?</p>
-                        <motion.button whileHover={{y: -2, scale: 1.05}} whileTap={{scale: 0.95}} className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300">Let's work Together</motion.button>
+                        <motion.a href="https://wa.me/message/U7TZMCQ57NGPJ1"  target="_blank" rel="noopener noreferrer" whileHover={{y: -2, scale: 1.05}} whileTap={{scale: 0.95}} className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300">Let's work Together</motion.a>
                     </motion.div>
                     
                 </motion.div>
