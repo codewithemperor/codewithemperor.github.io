@@ -7,7 +7,7 @@ import { useTheme } from "../../context/ThemeContext";
 import { containerVariants, itemVariants, textVariants, imageVariants } from "../../utils/helper";
 import { SOCIAL_LINKS } from "../../utils/data";
 
-const PROFILE_IMG = '../../src/assets/yusuf.png'
+const PROFILE_IMG = '../../src/assets/yusuf.jpg'
 
 export const Herosection = () => {
     const { isDarkMode } = useTheme();
