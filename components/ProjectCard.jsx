@@ -1,78 +1,181 @@
-import { motion } from "framer-motion"
-import { ExternalLink } from "lucide-react"
-import { FiGithub } from "react-icons/fi"
+import { motion } from "framer-motion";
+import { ExternalLink, Image as ImageIcon } from "lucide-react";
+import { FiGithub } from "react-icons/fi";
+import { useState } from "react";
+import ImageSlideshow from "./ImageSlideshow"; // Import the slideshow component
 
+const ProjectCard = ({ project, index, isDarkMode }) => {
+  const [showSlideshow, setShowSlideshow] = useState(false);
 
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
 
-const ProjectCard = ({project, index, isDarkMode}) => {
-    const cardVariants = {
-        hidden: {y: 20, opacity: 0},
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.6,
-                ease: "easeOut",
-            }
-        }
+  const handleCardClick = () => {
+    // If this is a slideshow project, open the slideshow
+    if (project.type === "slideshow" && project.slideshow) {
+      setShowSlideshow(true);
     }
+  };
+
   return (
-    <motion.div className="group relative" variants={cardVariants} whileHover={{y: -8, transition: {duration: 0.3, ease: "easeOut"}}}>
-        <div className={`rounded-2xl overflow-hidden border transition-all duration-500 ${isDarkMode ? "bg-gray-900/50 border-gray-800 hover:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/10" : "bg-white/80 border-gray-200 hover:border-gray-300 hover:shadow-2xl hover:shadow-blue-500/10"} backdrop-blur-sm`}>
-            {/* Project Image */}
-            <div className="relative overflow-hidden">
-                <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"/>
-                
-                {/* Featured Badge */}
-                {project.featured && (
-                    <div className="absolute top-4 left-4">
-                        <span className="bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-medium">{project.featured}</span>
-                    </div>
-                )}
+    <>
+      <motion.div
+        className="group relative"
+        variants={cardVariants}
+        whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
+        onClick={handleCardClick}
+        style={project.type === "slideshow" ? { cursor: "pointer" } : {}}
+      >
+        <div
+          className={`rounded-2xl overflow-hidden border transition-all duration-500 ${
+            isDarkMode
+              ? "bg-gray-900/50 border-gray-800 hover:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/10"
+              : "bg-white/80 border-gray-200 hover:border-gray-300 hover:shadow-2xl hover:shadow-blue-500/10"
+          } backdrop-blur-sm`}
+        >
+          {/* Project Image */}
+          <div className="relative overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
 
-                {/* Category Badge */}
-                <div className={`absolute top-4 right-4`}>
-                    <span className={`text-xs px-3 py-1 rounded-full font-medium ${isDarkMode ? "bg-gray-800/80 text-gray-300" : "bg-white/80 text-gray-700"} backdrop-blur-sm`}>
-                        {project.category}
-                    </span>
-                </div>
+            {/* Featured Badge */}
+            {project.featured && (
+              <div className="absolute top-4 left-4">
+                <span className="bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-medium">
+                  {project.featured}
+                </span>
+              </div>
+            )}
 
-                {/* Hover Overlay withh CTA Buttons */}
-                 <motion.div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center space-x-4" initial={{opacity: 0}} whileHover={{ opacity: 1 }} transition={{duration: 0.3}}>
-                 
-                    <motion.a href={project.link.url} target="_blank" rel="noopener noreferrer"  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 flex rounded-full items-center space-x-2 text-sm font-medium transition-colors" initial={{y:20, opacity: 0.5}} whileHover={{y: 16, opacity: 1, scale: 1.05}} transition={{duration: 0.3, delay: 0.1}}>
-                        {project.link?.icon 
-                            ? <project.link.icon size={16} />
-                            : <ExternalLink size={16} />
-                        }
-                        <span>{project.link?.title || 'Live URL'}</span>
-                    </motion.a>
+            {/* Category Badge */}
+            <div className={`absolute top-4 right-4`}>
+              <span
+                className={`text-xs px-3 py-1 rounded-full font-medium ${
+                  isDarkMode
+                    ? "bg-gray-800/80 text-gray-300"
+                    : "bg-white/80 text-gray-700"
+                } backdrop-blur-sm`}
+              >
+                {project.category}
+              </span>
+            </div>
 
-                    { project.link2 && (
-                        <motion.a href={project.link2.url} target="_blank" rel="noopener noreferrer"  className={`border-2 border-white text-white hover:bg-white hover:text-gray-900 px-4 py-2 rounded-full flex items-center space-x-2 text-sm font-medium transition-all`} initial={{y:20, opacity: 0.5}} whileHover={{y: 16, opacity: 1, scale: 1.05}} transition={{duration: 0.3, delay: 0.1}}>
-                            <project.link2.icon size={16} />
-                            <span>{project.link2.title}</span>
-                        </motion.a>
+            {/* Hover Overlay with CTA Buttons */}
+            <motion.div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center space-x-4"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Show different buttons based on project type */}
+              {project.type === "slideshow" ? (
+                <motion.button
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 flex rounded-full items-center space-x-2 text-sm font-medium transition-colors"
+                  initial={{ y: 20, opacity: 0.5 }}
+                  whileHover={{ y: 16, opacity: 1, scale: 1.05 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowSlideshow(true);
+                  }}
+                >
+                  <ImageIcon size={18} />
+                  <span>View Gallery ({project.slideshow?.length || 0})</span>
+                </motion.button>
+              ) : (
+                <>
+                  <motion.a
+                    href={project.link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 flex rounded-full items-center space-x-2 text-sm font-medium transition-colors"
+                    initial={{ y: 20, opacity: 0.5 }}
+                    whileHover={{ y: 16, opacity: 1, scale: 1.05 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
+                    {project.link?.icon ? (
+                      <project.link.icon size={16} />
+                    ) : (
+                      <ExternalLink size={16} />
                     )}
+                    <span>{project.link?.title || "Live URL"}</span>
+                  </motion.a>
 
-                </motion.div>
+                  {project.link2 && (
+                    <motion.a
+                      href={project.link2.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`border-2 border-white text-white hover:bg-white hover:text-gray-900 px-4 py-2 rounded-full flex items-center space-x-2 text-sm font-medium transition-all`}
+                      initial={{ y: 20, opacity: 0.5 }}
+                      whileHover={{ y: 16, opacity: 1, scale: 1.05 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                    >
+                      <project.link2.icon size={16} />
+                      <span>{project.link2.title}</span>
+                    </motion.a>
+                  )}
+                </>
+              )}
+            </motion.div>
+          </div>
+
+          {/* Project Content */}
+          <div className="p-6">
+            <h3 className="text-xl font-medium mb-3 group-hover:text-blue-500 transition-colors">
+              {project.title}
+            </h3>
+            <p
+              className={`text-sm leading-relaxed mb-4 ${
+                isDarkMode ? "text-gray-400" : "text-gray-600"
+              }`}
+            >
+              {project.description}
+            </p>
+
+            {/* Tech Stack Tags */}
+            <div className="flex flex-wrap gap-2 ">
+              {project.tags.map((tag, tagIndex) => (
+                <span
+                  key={tagIndex}
+                  className={`text-xs px-3 py-1 rounded-full ${
+                    isDarkMode
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-gray-100 text-gray-700"
+                  }`}
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
-
-            {/* Project Content */}
-            <div className="p-6">
-                <h3 className="text-xl font-medium mb-3 group-hover:text-blue-500 transition-colors">{project.title}</h3>
-                <p className={`text-sm leading-relaxed mb-4 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>{project.description}</p>
-
-                {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-2 ">
-                    {project.tags.map((tag, tagIndex) => (
-                        <span key={tagIndex} className={`text-xs px-3 py-1 rounded-full ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-100 text-gray-700"}`}>{tag}</span>
-                    ))}
-                </div>
-            </div>
+          </div>
         </div>
-    </motion.div>
-  )
-}
+      </motion.div>
 
-export default ProjectCard
+      {/* Slideshow Modal */}
+      {project.type === "slideshow" && project.slideshow && (
+        <ImageSlideshow
+          images={project.slideshow}
+          isOpen={showSlideshow}
+          onClose={() => setShowSlideshow(false)}
+          isDarkMode={isDarkMode}
+          projectTitle={project.title}
+        />
+      )}
+    </>
+  );
+};
+
+export default ProjectCard;
