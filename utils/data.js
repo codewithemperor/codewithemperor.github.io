@@ -81,12 +81,15 @@ export const SKILLS_CATEGORY = [
 export const TECH_STACK = [
   "Vite",
   "Webpack",
+  "Photoshop",
+  "Illustrator",
+  "Figma",
   "Zustand",
   "Redux Toolkit",
   "Next.js",
   "Tailwind CSS",
   "Bootstrap CSS",
-  "Styled Components",
+  "Canva",
   "Expo Router",
   "Framer Motion",
   "Lottie",
@@ -106,6 +109,18 @@ export const STATS = [
 ];
 
 export const PROJECTS = [
+  {
+    id: 0,
+    title: "Graphics Design Portfolio",
+    description:
+      "A showcase of creative design work including brand identities, social media graphics, posters, and digital illustrations.",
+    image: images.graphics_thumbnail,
+    tags: ["Photoshop", "Illustrator", "Figma", "Brand Design"],
+    type: "slideshow",
+    slideshow: generateImagePaths(1, 66),
+    featured: "Design",
+    category: "Graphics Design",
+  },
   {
     id: 1,
     title: "Kero Ride App (Driver)",
@@ -174,7 +189,7 @@ export const PROJECTS = [
     link: {
       title: "View Site",
       icon: ExternalLink,
-      url: "http://kerotechnologies.com",
+      url: "http://payurdues.com.ng",
     },
     githubUrl: "#",
     featured: "Frontend",
@@ -203,7 +218,7 @@ export const PROJECTS = [
     link: {
       title: "View Site",
       icon: ExternalLink,
-      url: "http://kerotechnologies.com",
+      url: "http://yourerrandsguy.com.ng",
     },
     githubUrl: "#",
     featured: "Frontend",
@@ -289,18 +304,6 @@ export const PROJECTS = [
     githubUrl: "#",
     featured: "FullStack",
     category: "Website",
-  },
-  {
-    id: 12,
-    title: "Graphics Design Portfolio",
-    description:
-      "A showcase of creative design work including brand identities, social media graphics, posters, and digital illustrations.",
-    image: images.graphics_thumbnail,
-    tags: ["Photoshop", "Illustrator", "Figma", "Brand Design"],
-    type: "slideshow",
-    slideshow: generateImagePaths(1, 66),
-    featured: "Design",
-    category: "Graphics Design",
   },
 ];
 

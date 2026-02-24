@@ -136,8 +136,8 @@ export const Herosection = () => {
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 } mb-8 max-w-xl mx-auto font-light leading-relaxed`}
               >
-                I build responsive mobile and web apps that blend seamless
-                performance with intuitive design and usability.
+                I build and design responsive graphics, mobile and web apps that
+                blend seamless performance with intuitive design and usability.
               </motion.p>
 
               {/* CTA Buttons - Mobile */}
@@ -306,8 +306,8 @@ export const Herosection = () => {
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 } mb-8 max-w-xl mx-auto font-light leading-relaxed`}
               >
-                I build responsive mobile and web apps that blend seamless
-                performance with intuitive design and usability.
+                I build and design responsive graphics, mobile and web apps that
+                blend seamless performance with intuitive design and usability.
               </motion.p>
 
               {/* CTA Buttons - Mobile */}
