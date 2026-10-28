@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens
+ * Hero follows the Nuria template (Raleway black headline, Instrument Serif
+ * italic, pink→violet glow). Everything else follows Meeko: white outline
+ * cards with a hairline ink border, pastel fills, pill buttons with an inset
+ * bottom shadow, Caveat for handwritten notes.
+ */
+@theme {
+  --color-ink: #1d1d1d;
+  --color-paper: #ffffff;
+  --color-muted: #5f5f66;
+  --color-faint: #8d8d94;
+  --color-line: #1d1d1d;
+  --color-hair: rgb(29 29 29 / 0.12);
+
+  /* Meeko pastels */
+  --color-lavender: #e3e3ff;
+  --color-sky: #e3f2ff;
+  --color-blush: #ffe3fb;
+  --color-butter: #ffe7a9;
+  --color-mint: #dbf5f0;
+  --color-peach: #fbebea;
+  --color-lime: #e9fac0;
+
+  /* Nuria hero accents */
+  --color-orchid: #da7abc;
+  --color-violet: #8c54b0;
+
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+
+  --animate-spin-slow: spin 14s linear infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased overflow-x-hidden;
+  }
+  ::selection {
+    background: var(--color-lavender);
+    color: var(--color-ink);
+  }
+  /* The slanted serif word in every heading gets the Nuria orchid → violet colour */
+  :is(h1, h2, h3) em {
+    background: linear-gradient(100deg, var(--color-orchid), var(--color-violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-right: 0.08em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-violet);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* Meeko outline card */
+@utility card {
+  @apply rounded-[28px] border-[0.8px] border-line bg-paper;
+}
+/* Small uppercase label, e.g. "BRAND DESIGN, FRAMER" */
+@utility eyebrow {
+  @apply text-[13px] font-medium uppercase tracking-[0.08em] text-ink;
+}
+@utility chip {
+  @apply inline-flex items-center gap-2 rounded-full border-[0.8px] border-line bg-paper px-4 py-2 text-sm text-ink;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-medium transition-all duration-300;
+}
+/* Meeko pill: white, hairline border, pressed-in bottom edge */
+@utility btn-outline {
+  @apply btn border-[0.8px] border-line bg-paper text-ink shadow-[inset_0_-4px_0_0_rgba(29,29,29,0.15)] hover:-translate-y-0.5 hover:bg-lavender active:translate-y-0;
+}
+@utility btn-dark {
+  @apply btn border-[0.8px] border-line bg-ink text-paper shadow-[inset_0_-4px_0_0_rgba(255,255,255,0.15)] hover:-translate-y-0.5;
+}
+/* Nuria gradient pill (hero only) */
+@utility btn-gradient {
+  @apply btn bg-gradient-to-b from-orchid to-violet text-white shadow-[0_8px_24px_-8px_rgba(140,84,176,0.6)] hover:-translate-y-0.5 hover:brightness-95;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
