@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Github, Linkedin, Instagram } from "lucide-react";
+import { Menu, X, Github, Linkedin, Instagram, Download } from "lucide-react";
 import { site, socials } from "@/lib/site";
 
 const links = [
@@ -86,6 +86,13 @@ export default function Navbar() {
               </li>
             );
           })}
+          {site.resumeUrl && (
+            <li className="ml-1">
+              <a href={site.resumeUrl} download className="btn-dark !px-4 !py-2 text-sm">
+                <Download size={15} /> Download CV
+              </a>
+            </li>
+          )}
         </ul>
 
         <button
@@ -116,7 +123,12 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <a href={`mailto:${site.email}`} className="btn-dark mt-6 w-full">
+            {site.resumeUrl && (
+              <a href={site.resumeUrl} download className="btn-dark mt-6 w-full">
+                <Download size={16} /> Download CV
+              </a>
+            )}
+            <a href={`mailto:${site.email}`} className="btn-outline mt-3 w-full">
               {site.email}
             </a>
           </motion.div>

@@ -179,7 +179,7 @@ export function Journey() {
           <p className="text-xl">Want the full picture?</p>
           {site.resumeUrl ? (
             <a href={site.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn-outline mt-5">
-              Download résumé <ArrowUpRight size={16} />
+              Download CV <ArrowUpRight size={16} />
             </a>
           ) : (
             <Link href="/contact" className="btn-outline mt-5">
