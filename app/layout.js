@@ -1,19 +1,21 @@
-import { Instrument_Serif, Inter, Raleway, Caveat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+// Fonts are bundled in app/fonts so the build never depends on downloading them from Google.
+const instrument = localFont({
+  src: [
+    { path: "./fonts/instrument-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/instrument-400-italic.woff2", weight: "400", style: "italic" },
+  ],
   variable: "--font-instrument",
   display: "swap",
 });
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const raleway = Raleway({ subsets: ["latin"], weight: ["800", "900"], variable: "--font-raleway", display: "swap" });
-const caveat = Caveat({ subsets: ["latin"], weight: ["500", "700"], variable: "--font-caveat", display: "swap" });
+const inter = localFont({ src: "./fonts/inter.woff2", weight: "100 900", variable: "--font-inter", display: "swap" });
+const raleway = localFont({ src: "./fonts/raleway.woff2", weight: "800 900", variable: "--font-raleway", display: "swap" });
+const caveat = localFont({ src: "./fonts/caveat.woff2", weight: "500 700", variable: "--font-caveat", display: "swap" });
 
 export const metadata = {
   metadataBase: new URL(site.url),
